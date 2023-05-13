@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 
 @Repository
 @RequiredArgsConstructor
-@Transactional
 public class OrderRepository {
 
     private final EntityManager em;
@@ -18,7 +17,6 @@ public class OrderRepository {
         em.persist(order);
     }
 
-    @Transactional(readOnly = true)
     public Order findOne(Long id){
         return em.find(Order.class, id);
     }
